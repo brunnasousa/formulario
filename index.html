@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-xl mb-4">Bem-vindo ao formulário</h2>
+        <form id="loginForm" class="flex flex-col">
+            <label for="name" class="mb-2">Seu Nome:</label>
+            <input type="text" id="name" placeholder="Digite seu nome" class="mb-4 p-2 border rounded">
+
+            <label for="yearSelection" class="mb-2">Selecione o Ano:</label>
+            <select id="yearSelection" class="mb-4 p-2 border rounded">
+                <option value="">Selecione...</option>
+                <option value="5">5º Ano</option>
+                <option value="6">6º Ano</option>
+            </select>
+
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            var year = document.getElementById('yearSelection').value;
+            switch(year) {
+                case '5':
+                    window.location.href = 'pagina-do-5-ano.html'; // Redireciona para a página do 5º ano
+                    break;
+                case '6':
+                    window.location.href = 'pagina-do-6-ano.html'; // Redireciona para a página do 6º ano
+                    break;
+                default:
+                    alert('Por favor, selecione um ano válido.');
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
